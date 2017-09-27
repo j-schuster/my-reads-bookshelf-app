@@ -6,38 +6,38 @@ import Search from './Search'
 import './App.css'
 
 class BooksApp extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
+  //constructor(props){
+  //  super(props);
+    state = {
     books: [],
     showSearchPage: false,
     searchResults: []
     }
-    this.changeShelf = this.changeShelf.bind(this)
-    this.showSearchPage = this.showSearchPage.bind(this)
-    this.backToApp = this.backToApp.bind(this)
+   // this.changeShelf = this.changeShelf.bind(this)
+   // this.showSearchPage = this.showSearchPage.bind(this)
+   // this.backToApp = this.backToApp.bind(this)
   //  this.updateSearch = this.updateSearch.bind(this)
-  }
+  //}
 
-  showSearchPage(){
+  showSearchPage = () => {
     this.setState({showSearchPage: true})
   }
 
-  backToApp(){
+  backToApp = () => {
     this.setState({showSearchPage: false})
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
      this.getAllBooks() 
   }
 
-  getAllBooks() {
+  getAllBooks = () => {
     BooksAPI.getAll().then((books) => {
         this.setState({books: books})
       })
   }
 
-  changeShelf(shelf, book){
+  changeShelf =(shelf, book) => {
    BooksAPI.update(book,shelf).then((data)=>{
       this.getAllBooks()
     }) 
@@ -45,7 +45,7 @@ class BooksApp extends React.Component {
  
 
   render() {
-  
+ 
     return (
       <div className="app">
         <Route path="/search" render={() => (

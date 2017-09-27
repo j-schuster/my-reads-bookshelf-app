@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 
 
+
+
 class Search extends React.Component {
  constructor(props){
   super(props);
   this.state = {
     query : '',
     books : [],
-   loadng : true
+   
   }
   this.updateSearch = this.updateSearch.bind(this)
   this.handleClick  = this.handleClick.bind(this)
@@ -21,14 +23,12 @@ class Search extends React.Component {
 
  getInput(e){
     this.setState({query: e.target.value})
-    this.updateSearch(this.state.query)   
+    this.updateSearch(this.state.query)
  }
  
  updateSearch = (query) => {
    if(query.length > 1){
       BooksAPI.search(query, 20).then(data => {
-       
-        this.setState({books : data})
         this.updateBooks(data)
       })
     }else{
@@ -56,8 +56,7 @@ let updatedBooks = searchBooks.map(book => {
 
 
 handleClick(e, book){
-    let self = this;
-    self.props.changeShelf(e, book)
+    this.props.changeShelf(e, book)
   }  
 
 render() {
