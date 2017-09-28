@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom' 
 import * as BooksAPI from './BooksAPI'
-
+import DebounceInput from 'react-debounce-input';
 
 
 
@@ -61,27 +61,29 @@ handleClick(e, book){
 
 render() {
  const results =  this.state.books  
- const searchedBooks = []
- for(let i = 0; i < results.length; i++){
-   searchedBooks.push(results[i])
- }
-
       return( 
             <div>  
               <div className="search-books">
                <div className="search-books-bar">
                 <Link to="/" className="close-search">Close</Link>
-                 <div className="search-books-input-wrapper">
-                  <input type="text" placeholder="Search by title or author" value={this.state.query} onChange={this.getInput}/>
+                  <div className="search-books-input-wrapper">
+                    <DebounceInput
+                     debounceTimeout={500}
+                     element="input"
+                     type="text"
+                     value={this.state.query}
+                     onChange={this.getInput}
+                     placeholder="Search by title or author"
+                   />
+                  </div>
                 </div>
-              </div>
               <div className="search-books-results">
             <ol className="books-grid"></ol>
           </div>
         </div>
-          {this.state.query.length > 0 ? <p className="display-results">displaying {searchedBooks.length} results</p> : null}
+          {this.state.query.length > 0 ? <p className="display-results">displaying {results.length} results</p> : null}
           <ol className="books-grid">
-            {searchedBooks.map((book) => (
+            {results.map((book) => (
               <li key={book.id}>
                 <div className="book">
                   <div className="book-top">

@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 class Bookshelf extends React.Component {
   constructor(props){
     super(props);
@@ -9,8 +8,7 @@ class Bookshelf extends React.Component {
 
 
   handleClick(e, book){
-    let self = this;
-    self.props.changeShelf(e, book)
+    this.props.changeShelf(e, book)
   }
   
   render(){
@@ -68,7 +66,7 @@ class Bookshelf extends React.Component {
                           </select>
                         </div>
                       </div>
-                      <div className="book-title">{book.authors}</div>
+                      <div className="book-title">{book.authors && book.authors.join(', ')}</div>
                       <div className="book-authors">{book.title}</div>
                     </div>
                   </li>

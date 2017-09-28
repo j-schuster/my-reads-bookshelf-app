@@ -6,18 +6,12 @@ import Search from './Search'
 import './App.css'
 
 class BooksApp extends React.Component {
-  //constructor(props){
-  //  super(props);
+  
     state = {
     books: [],
     showSearchPage: false,
     searchResults: []
     }
-   // this.changeShelf = this.changeShelf.bind(this)
-   // this.showSearchPage = this.showSearchPage.bind(this)
-   // this.backToApp = this.backToApp.bind(this)
-  //  this.updateSearch = this.updateSearch.bind(this)
-  //}
 
   showSearchPage = () => {
     this.setState({showSearchPage: true})
@@ -38,8 +32,9 @@ class BooksApp extends React.Component {
   }
 
   changeShelf =(shelf, book) => {
-   BooksAPI.update(book,shelf).then((data)=>{
-      this.getAllBooks()
+    BooksAPI.update(book,shelf).then((data)=>{
+        book.shelf = shelf;
+        this.setState({books: this.state.books.filter((b) => b.id !== book.id).concat(book)})
     }) 
   }
  
@@ -61,11 +56,3 @@ class BooksApp extends React.Component {
 }
  
 export default BooksApp
-
-
-  /* 
-   let newBooks = this.state.books.slice() 
-   var foundIndex = newBooks.findIndex(book => book.id === id);
-   newBooks[foundIndex].shelf = shelf;
-   this.setState({books: newBooks})  
-   */
