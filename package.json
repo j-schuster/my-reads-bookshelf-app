@@ -4,7 +4,6 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.2.2"
-    
   },
   "devDependencies": {
     "react-scripts": "0.9.5"
@@ -14,5 +13,19 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "name": "reactnd-project-myreads-starter",
+  "description": "This app is a project for the Udacity React program. It is bookshelf app, displaying a selection of books, catagorizing them into three shelves, \"Currently Reading\", \"Read\" and \"Want to Read\". It also has a search page where the user can search for books provided from a database, to add books to the collection.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-schuster/my-reads-bookshelf-app.git"
+  },
+  "author": "Johann Schuster",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/j-schuster/my-reads-bookshelf-app/issues"
+  },
+  "homepage": "https://github.com/j-schuster/my-reads-bookshelf-app#readme"
 }

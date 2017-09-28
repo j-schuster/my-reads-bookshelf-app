@@ -4,7 +4,7 @@ This app is a project for the Udacity React program. It is bookshelf app, displa
 
 ## To Run:
 
-1: Download or Clone the repositiry
-2: Run `npm install`
-3: Run app using `npm start`
-4: The app should pop up at `localhost:3000` 
+### 1: Download or Clone the repositiry
+### 2: Run `npm install`
+### 3: Run app using `npm start`
+### 4: The app should pop up at `localhost:3000` 
